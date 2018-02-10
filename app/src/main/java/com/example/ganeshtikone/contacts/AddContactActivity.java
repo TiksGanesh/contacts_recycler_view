@@ -8,6 +8,7 @@ import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.regex.Pattern;
 
@@ -87,6 +88,23 @@ public class AddContactActivity extends AppCompatActivity implements View.OnClic
         }
 
         // Add new contact to database logic
+
+        AppDatabaseHelper helper = new AppDatabaseHelper(this);
+        long id = helper.insertContact(personName,phoneNumber);
+        if (id > 0){
+            showToast("Operation Success");
+            editTextPhoneNumber.setText("");
+            editTextPersonName.setText("");
+        }else {
+            showToast("Operation failed");
+        }
+
+
+
+    }
+
+    private void showToast(String message) {
+        Toast.makeText(this,message,Toast.LENGTH_LONG).show();
     }
 
     /**

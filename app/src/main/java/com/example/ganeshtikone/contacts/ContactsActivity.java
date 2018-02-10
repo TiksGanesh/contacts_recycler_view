@@ -29,7 +29,8 @@ public class ContactsActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        createDummyData();
+        AppDatabaseHelper helper = new AppDatabaseHelper(this);
+        myContactsList =  helper.getAllContacts();
         initRecyclerView();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -74,42 +75,42 @@ public class ContactsActivity extends AppCompatActivity
     /**
      * Create MyContacts object and Add it to list
      */
-    private void createDummyData() {
-
-
-        myContactsList = new ArrayList<>();
-
-        MyContacts amitabh = new MyContacts("Mr. Amitabh Bachhan",
-                "982201020304");
-
-        MyContacts amir = new MyContacts("Mr. Amir Khan",
-                "98220100908");
-
-        MyContacts salman = new MyContacts("Mr. Salman Khan",
-                "900201020304");
-
-        MyContacts ranbir = new MyContacts("Mr. Ranbir Kapoor",
-                "0123456789");
-
-        MyContacts ranvir = new MyContacts("Mr. Ranvir Singh",
-                "54634278212");
-
-        MyContacts priyanka = new MyContacts("Ms. Priyanka Chopra",
-                "2345678901");
-
-        MyContacts madhuri = new MyContacts("Mrs. Madhuri Nene",
-                "9865432198");
-
-        myContactsList.add(madhuri);
-        myContactsList.add(priyanka);
-        myContactsList.add(amitabh);
-        myContactsList.add(amir);
-        myContactsList.add(salman);
-        myContactsList.add(ranbir);
-        myContactsList.add(ranvir);
-
-
-    }
+//    private void createDummyData() {
+//
+//
+//        myContactsList = new ArrayList<>();
+//
+//        MyContacts amitabh = new MyContacts("Mr. Amitabh Bachhan",
+//                "982201020304");
+//
+//        MyContacts amir = new MyContacts("Mr. Amir Khan",
+//                "98220100908");
+//
+//        MyContacts salman = new MyContacts("Mr. Salman Khan",
+//                "900201020304");
+//
+//        MyContacts ranbir = new MyContacts("Mr. Ranbir Kapoor",
+//                "0123456789");
+//
+//        MyContacts ranvir = new MyContacts("Mr. Ranvir Singh",
+//                "54634278212");
+//
+//        MyContacts priyanka = new MyContacts("Ms. Priyanka Chopra",
+//                "2345678901");
+//
+//        MyContacts madhuri = new MyContacts("Mrs. Madhuri Nene",
+//                "9865432198");
+//
+//        myContactsList.add(madhuri);
+//        myContactsList.add(priyanka);
+//        myContactsList.add(amitabh);
+//        myContactsList.add(amir);
+//        myContactsList.add(salman);
+//        myContactsList.add(ranbir);
+//        myContactsList.add(ranvir);
+//
+//
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
